@@ -1,46 +1,47 @@
-#Team GreyLegs -- Alex Liu, Vincent Lin
+#Team GreyLegs -- Vincent Lin, Alex Liu
 #SoftDev pd7
 #K06 -- StI/O: Divine your Destiny!
 #2018-09-13
 
-import csv
-from random import choice
+from csv import reader
+from random import randint
 
+d = {}
+reader = reader(open('occupations.csv', 'r')) #reads the csv file 
+r = 0
+for row in reader: #converts the csv file to a dictionary
+    #print(row)
+    if r != 0: #so the first row isn't included 
+        d[float(row[1])] = row[0] #float to make sure percentages are stored as numbers
+    r += 1
 
-#instantiates the list to fill with occupations
-occuList = []
+#print(d)
 
-#reads the csv file
-reader = csv.DictReader(open('occupations.csv', 'r'))
+d.pop(99.8) #remove the total
 
-def readList():
-    for line in reader:
-        i = 0
-        while i < (float(line['Percentage'])*10):
-            occuList.append(line['Job Class'])
-            i+= 1
-    #print(line)
-    #removes the last line of the csv file
-    for x in range(0,998):
-        occuList.pop()
+#print(d) #testing purposes
 
-#adds more occupations to the occuList to increase frequencies
-def fillPercent():
-    for line in reader:
-        i = 1
-        while i < (float(line['Percentage'])*10):
-            occuList.append(line['Job Class'])
-            i+= 1
+keys = d.keys()
 
+keylist = [] 
+keysum = 0.0
+for x in keys: #creating a list of keys
+    keylist.append(x)
+    keysum += x #finding the sum of the keys
 
-readList()
-#print(occuList)
+#print(keysum)
+#print(keys) #testing perposes
 
-#testing
-#import pprint
-#pprint.pprint(occuList)
+def randOcc():
+    ri = float(randint(0, int(keysum))) #choose a random float
+    for x in keylist:
+        if ri > x:
+            #print('ri') #testing
+            #print(ri)
+            ri -= x #subtract until float becomes less than or equal to a key
+        else:
+            #print('x')
+            #print(x)
+            return d[x] #returns value of first valid key
 
-def randomChooser():
-    print (choice(occuList))
-
-randomChooser()
+print(randOcc())
