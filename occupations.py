@@ -1,7 +1,7 @@
-#
-#SoftDev1 pd07
-#
-#
+#Team GreyLegs -- Alex Liu, Vincent Lin
+#SoftDev pd7
+#K06 -- StI/O: Divine your Destiny!
+#2018-09-13
 
 import csv
 from random import choice
