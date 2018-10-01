@@ -4,7 +4,17 @@
 
   <head> <b>Enter username</b> </head> <br> <br>
 
-  <form action="/auth">
+  <h2> using POST </h2>
+  <form action="/auth" method="POST">
+    First name: <input type="text" name="username" value="alex"><br>
+    <!-- Last name: <input type="text" name="LastName" value="password"><br> -->
+    <input type="submit" value="sub1">
+  </form>
+
+  <p>Click the "Submit" button.</p>
+
+  <h2> using GET </h2>
+  <form action="/auth" method="GET">
     First name: <input type="text" name="username" value="alex"><br>
     <!-- Last name: <input type="text" name="LastName" value="password"><br> -->
     <input type="submit" value="sub1">
