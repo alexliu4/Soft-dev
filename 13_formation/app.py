@@ -22,7 +22,6 @@ def authenticate():
 
     print(app)
     print(request)
-    print(request.form['username'])
     print(request.method)
     return render_template("result.html",
                             foo = "hey",
