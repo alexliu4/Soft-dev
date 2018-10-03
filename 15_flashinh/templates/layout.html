@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> LOGIN! </title>
+  </head>  
+    <br> <br>
+
+    {% set msgs = get_flashed_messages() %}
+    {%for each in msgs %}
+      {{each}}
+      <br>
+    {% endfor %}
+   <!-- {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+   {% endwith %} -->
+    <br> <br>
+    {% block body %}{% endblock %}

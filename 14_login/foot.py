@@ -54,14 +54,14 @@ app.secret_key = os.urandom(32)
 @app.route('/logout')
 def logout():
     return ( render_template ( "foot.html", message = "You have been successfully logged out."))
-'''
+
     print(app)
     print(request) ##prints returned URL with auth tags
     print(request.args) ## gives immutabledict based on names of input fields (ie username & sub1)
     print(request.args['username'])
     print(request.headers)
     return "Waaaa hooo HAAAH"
-'''
+
 if __name__ == "__main__":
     app.debug = True
     app.run()

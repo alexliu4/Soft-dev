@@ -15,7 +15,7 @@ password = 'starwars4'
 @app.route('/')
 def disp_login():
     loginMess = "Please enter a valid username and password."
-    flash("loginMess")
+    flash(loginMess)
     return render_template("foot.html")
 
 #what is the difference between render_template, redirect, and url_for?

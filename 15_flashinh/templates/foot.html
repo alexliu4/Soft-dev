@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title> LOGIN! </title>
 
-  </head>
-
-  <body>
-    <br> <br>
-
-    {% set msgs = get_flashed_messages() %}
-    {%for each in msgs %}
-      {{each}}
-      <br>
-    {% endfor %}
-   <!-- {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-   {% endwith %} -->
-    <br> <br>
+{% extends "layout.html" %}
+{% block body %}
     <form action = "/auth" method = "POST">
 
       <b> Username: </b> <input type = "text" name = "username" > <br>
       <b> Password: </b> <input type = "text" name = "password" > <br>
       <input type = "submit" name = "sub1" >
     </form>
-
-  </body>
-</html>
+{% endblock %}
