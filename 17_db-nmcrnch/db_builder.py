@@ -15,7 +15,7 @@ def csvToDB(fileName, types):
     #==========================================================
     #INSERT YOUR POPULATE CODE IN THIS ZONE
 
-    file = open("raw/" + fileName, "rU")
+    file = open("raw/" + fileName)
     reader = csv.DictReader(file)
 
     #for row in reader:
