@@ -17,7 +17,6 @@ def csvToDB(fileName, types):
 
     file = open("raw/" + fileName)
     reader = csv.DictReader(file)
-
     #for row in reader:
     #    print(row['code'], row['mark'], row['id'])
 

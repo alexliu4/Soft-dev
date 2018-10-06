@@ -12,14 +12,39 @@ c = db.cursor()
 
 avg_list = []
 id_list = []
+#avg of current student
+avg = 0
+#global variable for number of courses and sum
+cor = 0
+sum = 0
 
-#looks for each course based on id
-for x in range(1,11):
+def avg_find(x):
     grades = "SELECT courses.mark FROM courses WHERE " + str(x) + "= courses.id;"
     c.execute(grades)
 
     #gets all the courses for the durrent "x" id
     mark_list = c.fetchall()
+    #makes a list of avgs for each student
+    markTuples = ()
+    for row in mark_list:
+        markTuples += row
+        #print (row)
+
+        #adds the tuples in the list for each student
+    global cor
+    global sum
+    sum = 0
+    cor = 0
+    for num in markTuples:
+        sum += num
+        cor += 1
+        #print (sum)
+    return (sum / cor)
+
+#looks for each course based on id
+for x in range(1,11):
+
+    avg = avg_find(x)
 
     #finds name of student with specfic id
     students = "SELECT peeps.name FROM peeps WHERE " + str(x) + "= peeps.id;"
@@ -32,25 +57,15 @@ for x in range(1,11):
 
     id = c.fetchall()
 
-    #makes a list of avgs for each student
-    markTuples = ()
-    for row in mark_list:
-        markTuples += row
-        #print (row)
-
-    #adds the tuples in the list for each student
-    sum = 0
-    num_cor = 0
-    for num in markTuples:
-        sum += num
-        num_cor += 1
-        #print (sum)
     #prints sum of grades
-    print (str(student[0][0]) + " with id " + str(id[0][0]) + " total : " + str(sum) )
+    print (str(student[0][0]) + " with id " + str(id[0][0]) + " total : " + str(sum) )\
+    #prints num of courses
+    print (str(student[0][0]) + " with id " + str(id[0][0]) + " total : " + str(cor) )
+
 
     #prints avg
-    print (str(student[0][0]) + " with id " + str(id[0][0]) + " avg : " + str(sum / num_cor ) + "\n" )
-    avg_list.append(sum / num_cor)
+    print (str(student[0][0]) + " with id " + str(id[0][0]) + " avg : " + str(avg) + "\n" )
+    avg_list.append(avg)
     id_list.append(id[0][0])
 
 # ==============================Creating New Table==============================
@@ -63,6 +78,26 @@ for x in range(0,10):
     #print(command)
     c.execute(command)
 
+# ==============================Creating New Row==============================
+
+def row_Add(id, avg):
+    command = "INSERT INTO peeps_avg VALUES " + "(" +  str(id) + ", " + str(avg) + ");"
+    c.execute(command)
+
+#row_Add(78, 1000)
+
+#==============================Creating Update==============================
+
+def updating(id, new):
+    #gets old average
+    old = avg_find(id);
+
+    #adds new average to old average
+    command = "UPDATE peeps_avg SET AVERAGE = " + str((sum + new) / (cor + 1)) + " " + "WHERE ID = " + str(id) + ";"
+    print(command)
+    c.execute(command)
+
+#updating(9, 57)
 
 db.commit() #save changes
 
