@@ -80,11 +80,11 @@ for x in range(0,10):
 
 # ==============================Creating New Row==============================
 
-def row_Add(id, avg):
-    command = "INSERT INTO peeps_avg VALUES " + "(" +  str(id) + ", " + str(avg) + ");"
+def row_Add(code, mark, id):
+    command = "INSERT INTO courses VALUES " + "(" + '"' + code + '"' + ", " + str(mark) + ", " + str(id) + ");"
     c.execute(command)
 
-#row_Add(78, 1000)
+#row_Add("hello" ,78, 1000)
 
 #==============================Creating Update==============================
 
