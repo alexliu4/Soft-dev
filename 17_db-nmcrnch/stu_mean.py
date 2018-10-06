@@ -1,6 +1,6 @@
-# trackStars -- Alex Liu, William Lu
+# Liliu and Stitch -- Alex Liu, Karen Li
 # SoftDev1 pd7
-# K16 -- No Trouble
+# K17 -- AVERAGE
 # 2018-10-05 F
 
 import sqlite3
