@@ -11,8 +11,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    url = "https://api.nasa.gov/planetary/apod?api_key=xygyAxeGinPW9YBcPBX01p9Aba9lXfhrAh5O5WX5"
+    print("==========================")
+    url = "https://api.got.show/api/characters/locations"
     context = ssl._create_unverified_context()
+    print("=============" + url + "=============")
     v = urllib.request.urlopen(url, context=context)
     print(v)
 
@@ -22,7 +24,7 @@ def home():
     data = json.loads( response )
     print (data)
 
-    return render_template("template.html", pic=data['url'], explanation=data['explanation'])
+    return render_template("template.html", name=data[0]['name'], location=data[0]['locations'])
 
 
 if __name__ == "__main__":
