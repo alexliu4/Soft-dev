@@ -32,7 +32,7 @@ var gcd = (a, b) => {
 // }
 
 // made list of students
-var students = ["MaiJ", "LiuA", "adayR", "aschJ","belkebirl","chenJ","chowdhuryJ"]
+var studentList = ["MaiJ", "LiuA", "adayR", "aschJ","belkebirl","chenJ","chowdhuryJ"]
 
 // chooses a random student from list using Math.random()
 var randomStudent = function(){

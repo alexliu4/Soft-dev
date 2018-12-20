@@ -29,7 +29,7 @@ var gcd = (a, b) => {
 }
 
 // made list of students
-var students = ["MaiJ", "LiuA", "adayR", "aschJ","belkebirl","chenJ","chowdhuryJ"]
+var studentList = ["MaiJ", "LiuA", "adayR", "aschJ","belkebirl","chenJ","chowdhuryJ"]
 
 // chooses a random student from list using Math.random()
 var randomStudent = function(){
@@ -39,12 +39,12 @@ var randomStudent = function(){
 
 // helper functions
 var showFib = function(){
-  console.log(fibonacci(10));
-  document.getElementById("result").innerHTML = "Fibonacci: " + fibonacci(10);
+  console.log(fibonacci(7));
+  document.getElementById("result").innerHTML = "Fibonacci: " + fibonacci(7);
 }
 
 var showGcd = function(){
-  console.log(gcd(100,30));
+  console.log(gcd(48,16));
   document.getElementById("result").innerHTML = "GCD: " + gcd(48,16);
 }
 
