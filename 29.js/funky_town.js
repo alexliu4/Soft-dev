@@ -38,11 +38,14 @@ var randomStudent = function(){
 }
 
 // helper functions
+
+// shows Fib of the 7th element
 var showFib = function(){
   console.log(fibonacci(7));
   document.getElementById("result").innerHTML = "Fibonacci: " + fibonacci(7);
 }
 
+// shows GCD of 48 and 16
 var showGcd = function(){
   console.log(gcd(48,16));
   document.getElementById("result").innerHTML = "GCD: " + gcd(48,16);
@@ -51,7 +54,7 @@ var showGcd = function(){
 var showStudent = function(){
   var selected_student = randomStudent();
   console.log(selected_student);
-  document.getElementById("result").innerHTML = "Selected Random Student: " + selected_student;
+  document.getElementById("result").innerHTML = "The Random Student: " + selected_student;
 }
 
 // works with buttons
