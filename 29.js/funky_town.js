@@ -45,7 +45,7 @@ var showFib = function(){
 
 var showGcd = function(){
   console.log(gcd(100,30));
-  document.getElementById("result").innerHTML = "GCD: " + gcd(100,30);
+  document.getElementById("result").innerHTML = "GCD: " + gcd(48,16);
 }
 
 var showStudent = function(){
