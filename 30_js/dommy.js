@@ -10,6 +10,34 @@ var fibonacci = function(n){
   return fibonacci(n - 1) + fibonacci(n-2);
 }
 
+// fibnum keeps track of where in fibonacci sequence we are at
+var fibnum = 0;
+var fibList = document.getElementById("fibList");
+
+document.getElementById("fb").addEventListener('click', function(){
+  // forgot whether its just numbers or bullet points
+
+  // var li = document.createElement("ol");
+  var li = document.createElement("li");
+  li.innerHTML= fibnum + ". " + fibonacci(fibnum);
+  // add fib to sequence
+  document.body.appendChild(li);
+  fibnum++;
+});
+
+// add "WORD" to list function
+var wordAdd = function(e){
+  var list = document.getElementById("thelist");
+  var item = document.createElement("li");
+  item.innerHTML = "WORD";
+  list.appendChild(item);
+};
+
+// when button is clicked, call wordAdd
+var button = document.getElementById("word");
+button.addEventListener("click", wordAdd);
+
+
 // helper function to change the "HELLO WORLD" header to item
 var itemHeading = function(e){
   var head = document.getElementById("head");
@@ -33,30 +61,3 @@ for (var i = 0; i < lis.length; i++){
   // if the list item is clicked remove it
   lis[i].addEventListener("click", remover);
 }
-
-// add "WORD" to list function
-var wordAdd = function(e){
-  var list = document.getElementById("thelist");
-  var item = document.createElement("li");
-  item.innerHTML = "WORD";
-  list.appendChild(item);
-};
-
-// when button is clicked, call addItem
-var button = document.getElementById("word");
-button.addEventListener("click", wordAdd);
-
-// fibnum keeps track of where in fibonacci sequence we are at
-var fibnum = 0;
-var fibList = document.getElementById("fibList");
-
-document.getElementById("fb").addEventListener('click', function(){
-  // forgot whether its just numbers or bullet points
-
-  // var li = document.createElement("ol");
-  var li = document.createElement("li");
-  li.innerHTML= fibnum + ". " + fibonacci(fibnum);
-  // add fib to sequence
-  document.body.appendChild(li);
-  fibnum++;
-});
