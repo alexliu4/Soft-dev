@@ -17,8 +17,8 @@ var fibList = document.getElementById("fibList");
 document.getElementById("fb").addEventListener('click', function(){
   // forgot whether its just numbers or bullet points
 
-  // var li = document.createElement("ol");
-  var li = document.createElement("li");
+  var li = document.createElement("ol");
+  // var li = document.createElement("li");
   li.innerHTML= fibnum + ". " + fibonacci(fibnum);
   // add fib to sequence
   document.body.appendChild(li);
@@ -30,10 +30,18 @@ var wordAdd = function(e){
   var list = document.getElementById("thelist");
   var item = document.createElement("li");
   item.innerHTML = "WORD";
+  // sets header to word if mouse is over it
+  item.addEventListener("mouseover", itemHeading);
+  // resets to "Hello World" after
+  item.addEventListener("mouseout", function(){
+    head.innerHTML = "Hello World!";
+  })
+  // if clicked remove
+  item.addEventListener("click", remover);
   list.appendChild(item);
 };
 
-// when button is clicked, call wordAdd
+// when button is clicked use wordAdd function
 var button = document.getElementById("word");
 button.addEventListener("click", wordAdd);
 
@@ -49,15 +57,15 @@ var remover = function(e){
   e.target.remove();
 };
 
-// for every listed item, do :
-var lis = document.getElementsByTagName("li");
-for (var i = 0; i < lis.length; i++){
+// to change header of list and remove elements (for items)
+var listed = document.getElementsByTagName("li");
+for (var i = 0; i < listed.length; i++){
   // if mouse hovers over change heading to the item being hovered over
-  lis[i].addEventListener("mouseover", itemHeading);
+  listed[i].addEventListener("mouseover", itemHeading);
   // if mouse goes away changed heading back to "HELLO WORLD"
-  lis[i].addEventListener("mouseout", function(){
+  listed[i].addEventListener("mouseout", function(){
     head.innerHTML = "Hello World!";
   })
   // if the list item is clicked remove it
-  lis[i].addEventListener("click", remover);
+  listed[i].addEventListener("click", remover);
 }
