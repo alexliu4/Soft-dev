@@ -39,6 +39,7 @@ var wordAdd = function(e){
   // if clicked remove
   item.addEventListener("click", remover);
   list.appendChild(item);
+                                            //document.body.appendChild
 };
 
 // when button is clicked use wordAdd function
@@ -57,7 +58,7 @@ var remover = function(e){
   e.target.remove();
 };
 
-// to change header of list and remove elements (for items)
+// to change header of list and remove elements (from list of items)
 var listed = document.getElementsByTagName("li");
 for (var i = 0; i < listed.length; i++){
   // if mouse hovers over change heading to the item being hovered over
